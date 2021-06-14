@@ -81,19 +81,18 @@ def set_and_save_metadata(dict_metadata: dict,
 
 def log_metadata_to_neptune(meta: dict,
     run_name="",
-    project_name="thesis",
-    MODELS_DIRPATH="models/double_cav_models"
+    project_name="",
+    MODELS_DIRPATH="models/double_cav_models",
+    username="",
     ):
     """
     Log all metadata, metrics evolution, models parameters, plots to Neptune.
     """
     # API_TOKEN = getpass("Enter Neptune Api_token: ")
     API_TOKEN = (
-        "eyJhcGlfYWRkcmVzcyI6Imh0dHBzOi8vYXBwLm5lcHR1bmUuYWkiLCJhcGlfdXJsIjoiaH"
-        "R0cHM6Ly9hcHAubmVwdHVuZS5haSIsImFwaV9rZXkiOiJmNzEyY2Q4MS02ZjUwLTQ4ZGUt"
-        "OWQ2YS0xZWEwNmU5ZjRkZjAifQ==")
+        "")
 
-    run = neptune.init(project=f'jbvdb/{project_name}',
+    run = neptune.init(project=f'{username}/{project_name}',
                     api_token=API_TOKEN,
                     run=run_name)
 
